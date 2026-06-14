@@ -1,0 +1,94 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "patient_data_expectations",
+  "meta": {
+    "great_expectations_version": "0.18.0"
+  },
+  "expectations": [
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1,
+        "max_value": 10000000
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "patient_id"
+      },
+      "meta": {
+        "notes": "Patient ID is the primary key and must never be null"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "patient_id"
+      },
+      "meta": {
+        "notes": "Patient IDs must be unique across the dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "event_timestamp"
+      },
+      "meta": {
+        "notes": "All events must have a timestamp for temporal analysis"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "age",
+        "min_value": 0,
+        "max_value": 120
+      },
+      "meta": {
+        "notes": "Age must be within human biological range"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "gender",
+        "value_set": ["M", "F", "U", "Male", "Female", "Unknown"]
+      },
+      "meta": {
+        "notes": "Gender must be one of the standardized values"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "masked_phone",
+        "regex": "^\\d{3}-\\d{3}-\\*{4}$"
+      },
+      "meta": {
+        "notes": "Phone numbers must be masked for HIPAA compliance"
+      }
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "patient_id",
+          "first_name",
+          "last_name",
+          "masked_phone",
+          "birth_date",
+          "gender",
+          "age",
+          "ingestion_timestamp",
+          "event_timestamp"
+        ]
+      },
+      "meta": {
+        "notes": "Schema must match the defined contract for downstream consumers"
+      }
+    }
+  ]
+}
