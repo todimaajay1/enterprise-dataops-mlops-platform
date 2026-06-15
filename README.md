@@ -156,13 +156,19 @@ docker-compose -f infrastructure/kubernetes/airflow-deployment.yaml up -d
 # 6. Register features
 cd mlops/features
 python feature_definitions.py apply
+...
+## Compliance & Security
+This platform is engineered to meet rigorous enterprise standards, ensuring data integrity, privacy, and regulatory alignment throughout the lifecycle:
 
-Compliance & Governance
+*   **SOC-2 Compliance:** All infrastructure and code changes are fully tracked, rigorously tested, and subject to mandatory approval workflows to maintain a verifiable audit trail.
+*   **HIPAA Preparedness:** Protected Health Information (PHI) environments are logically isolated using secure network policies, with at-rest/in-transit encryption and comprehensive audit logging enabled.
+*   **GDPR & Data Privacy:** Data retention and lifecycle policies are fully automated via Terraform, ensuring compliance with right-to-forget and data minimization requirements.
+*   **End-to-End Audit Trail:** Provides complete lineage tracking, documenting the journey of data from raw source ingestion to final model prediction.
 SOC-2: All changes tracked, tested, and approved
 HIPAA: PHI environments isolated with encryption and audit logging
 GDPR: Data retention policies automated via Terraform
 Audit Trail: Complete lineage from source to model prediction
 
-License
+## License
 Enterprise DataOps reference architecture. MIT License.
 
