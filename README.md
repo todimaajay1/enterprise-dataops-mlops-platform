@@ -156,7 +156,8 @@ docker-compose -f infrastructure/kubernetes/airflow-deployment.yaml up -d
 # 6. Register features
 cd mlops/features
 python feature_definitions.py apply
-...
+
+```
 ## Compliance & Security
 This platform is engineered to meet rigorous enterprise standards, ensuring data integrity, privacy, and regulatory alignment throughout the lifecycle:
 
